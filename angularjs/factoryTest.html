@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<script type="text/javascript">
+  app = angular.module("app", []);
+  app.controller('MainCtrl', function($scope, foo) {
+    $scope.foo = foo;
+  });
+
+  // revealing module pattern 방식의 팩토리 서비스
+  app.factory('foo', function() {
+  var thisIsPrivate = "Private";
+  function getPrivate() {
+    return thisIsPrivate;
+  }
+  return {
+    variable: "This is public",
+    getPrivate: getPrivate
+  };
+});
+
+</script>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+</head>
+  <body ng-controller="MainCtrl">
+    public variable: {{foo.variable}}
+    <br />
+    private variable (through getter): {{foo.getPrivate()}}
+  </body>
+</html>
