@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<title>Bootstrap Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap -->
+<link href="css/theme.css" rel="stylesheet" media="screen">
+</head>
+<body>
+  <!--menu bar start navbar-fixed-top-->
+  <nav class="navbar navbar-inverse " role="navigation">
+    <div class="container">
+    
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-ex8-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+       <a class="navbar-brand" href="#">맛집탐방</a>
+      </div>
+     
+      <div class="navbar-collapse navbar-ex8-collapse collapse" style="height: 1px;">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#main_top">Top</a></li>
+          <li><a href="javascript:alert('준비중');">meun1</a></li>
+          <li><a href="javascript:alert('준비중');">meun2</a></li>
+          <li><a href="javascript:alert('준비중');">meun3</a></li>
+        </ul
+      </div>
+    </div>
+  </nav>
+  <!--menu bar end-->
+  
+  <!--main contents start-->
+    <section class="container" id="main_top">    
+      <!--main contensts-->
+      <div class="panel" ng-controller="mainSlide">
+        <div class="panel-heading form-inline">
+          <label>어디서 놀아? 내가 가본 장소는  </label>
+          <input type="text" id="search_text" class="form-control input-sm" style="width:200px;" ng-model="query.title" placeholder="search">
+          <span class="badge"> {{getCount()}} 건</span> / <span >총 {{users.length}} 건</span>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-4" ng-repeat="user in users|filter:query">
+              <div class="thumbnail" >
+                  <img src="img/{{user.no}}.jpg" alt="" class="img-thumbnail">
+                   <div class="caption">
+                     <h3 class="caption-label">{{user.title}}</h3>
+                     <p>제 점수는요 " {{user.contents}} "</p>                    
+                   </div>
+              </div>               
+            </div>     
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--main contents end-->
+  <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="lib/ui-bootstrap-tpls-0.10.0.min.js"></script>
+  <script src="bootstrap_js/bootstrap.min.js"></script>
+  <script src="js/dataBinding.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+
+<!doctype html>
+<!-- Our uiRouterSample module defined here -->
+<html lang="en" ng-app="uiApp">
+  <head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="../../bootstrap_css/bootstrap.min.css">
+
+    <script src="../../lib/angular.js"></script>
+    <script src="../../lib/angular-ui-router.js"></script>    
+    <script src="simple.js"></script>
+  
+    <title>ui-router</title>
+  </head>
+
+  <body>
+
+  <h1>리스트화면</h1>
+  <div class="contents">
+
+    <div ui-view="viewA"></div>
+    <div ui-view="viewB"></div>
+    <div ng-controller="MainCtrl">
+      {{greet}}!! {{whoami}}
+      <div ng-controller="NavCtrl">
+        {{greet}}!! {{whoami}}
+      </div>
+      <div ng-controller="SidecCtrl">
+        {{greet}}!! {{whoami}}
+      </div>
+    </div>
+
+  </div>
+
+  </body>
+
+</html>
+

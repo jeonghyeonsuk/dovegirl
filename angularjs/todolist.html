@@ -1,0 +1,42 @@
+<!doctype html>
+<html ng-app>
+<head>
+<meta charset="UTF-8">
+  <script src="lib/angular.js"></script>
+  <script src="js/todolist.js"></script>
+  
+  <style type="text/css">
+    .done-true{
+      color:gray;
+      text-decoration: line-through;
+    }
+  </style>
+
+</head>
+<body>
+  <h1>Todo List</h1>
+  <div ng-controller="mainCtrl">
+    <!--체크개수랑 총개수를 표시-->
+    <p>Finished Task : {{getDoneCount()}} / {{tasks.length}}
+    <button ng-click="deleteDone()">Delete Finished</button>
+    </p>
+    
+
+    <ul>
+      <!--데이터를 표시-->
+      <li ng-repeat="task in tasks">
+        <input type="checkbox" ng-model="task.done">
+        <span class="done-{{task.done}}">{{task.body}}</span>
+        <a href ng-click="tasks.splice($index,1)">[x]</a>
+      </li>
+    </ul>
+
+    <form ng-submit="addNew()">
+      <input type="text" ng-model="newTaskBody">
+      <input type="submit" value="add">
+    </form>
+
+  </div>
+</body>
+</body>
+</html>

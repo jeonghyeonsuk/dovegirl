@@ -1,0 +1,27 @@
+<!doctype html>
+<!-- Our uiRouterSample module defined here -->
+<html lang="en" ng-app="uiRouterExample">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="bootstrap_css/bootstrap.css">
+  </head>
+  <body>
+    <div class="container">
+      
+   
+     <div class="row">
+       <ul class="nav nav-pills">
+         <li><a href="#/home">Home</a></li>
+         <li><a href="#/list">Photo</a></li>
+       </ul>
+
+     </div>
+    <div ui-view></div>
+    </div>
+
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-ui-router.js"></script>
+    <script src="lib/utils-service.js"></script>
+    <script src="js/apiIndex.js"></script>
+  </body>
+</html>
