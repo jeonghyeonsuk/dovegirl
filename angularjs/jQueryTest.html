@@ -1,0 +1,31 @@
+ 
+<!DOCTYPE html>
+<html ng-app>
+ <head>
+    <meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script>
+function fooCtrl( $scope )
+{
+    $scope.text = "";
+    $scope.btnClick = function()
+    {
+        $scope.text = "btn1 click"; //변경 내용이 화면에 나타남
+    }
+ 
+    jQuery( "#btn2" ).click( function()
+    {
+        $scope.text = "btn2 click"; //변경 내용이 화면에 나타나지 않음
+        $scope.$apply();
+    });
+}
+</script>
+ </head>
+<body ng-controller="fooCtrl">
+    <div>{{text}}</div>
+    <input id="btn1" type="button" value="버튼" ng-click="btnClick()" />
+    <input id="btn2" type="button" value="버튼" />
+</body>
+
+</html>
