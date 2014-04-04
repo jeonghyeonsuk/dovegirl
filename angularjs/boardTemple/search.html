@@ -1,0 +1,38 @@
+
+<div ng-controller="searchController">
+	<p>
+		<input type="text" ng-model="filterTerm" ng-disabled="searching">
+		<button ng-click="doSearch()" ng-disabled="searching" class="pure-button pure-button-primary">Search</button>
+		<span>검색 총 {{mediaResults.length}} 건  </span> 
+	</p>
+	<table class="table table-bordered table-condensed">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Cover</th>
+				<th>Track</th>
+				<th>Type</th>
+				<th>Artist</th>
+				<th>Collection</th>
+				<th>Track</th>
+				<th>Collection</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="media in mediaResults | orderBy:sortProp">
+				<td>
+					{{$index+1}}
+				</td>
+				<td>
+					<a ng-href="{{media.previewUrl}}" target="_blank"><img ng-src="{{media.artworkUrl60}}" /></a>
+				</td>
+				<td>{{media.trackName || media.collectionName}}</td>
+				<td>{{media.kind}}</td>
+				<td>{{media.artistName}}</td>
+				<td>{{media.collectionName}}</td>
+				<td>{{media.trackPrice | currency}}</td>
+				<td>{{media.collectionPrice | currency}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

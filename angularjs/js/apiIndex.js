@@ -6,7 +6,7 @@ angular.module('uiRouterExample', [
 .config(function($stateProvider, $urlRouterProvider){
   $stateProvider
   .state('home', {
-    url:'/home',
+    url:'/home2',
     templateUrl:'templates/home.html'
   })
   .state('list', {
@@ -37,6 +37,7 @@ angular.module('uiRouterExample', [
   $scope.selectItem = function(selectedItem){
     _($scope.photoList).each(function(item){
       item.selected = false;
+      alert(item);
       if(selectedItem === item){
         selectedItem.selected = true;
       }

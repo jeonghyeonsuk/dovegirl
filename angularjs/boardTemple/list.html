@@ -1,0 +1,47 @@
+<div ng-controller="listCtrl">
+	<!--체크개수랑 총개수를 표시-->
+	<p>
+		게시물 총 {{dataList.length}} 건 :  
+		<button ng-click="deleteDone()">{{getDoneCount()}} 건 선택 삭제 </button>
+	</p>
+	<!--데이터를 표시-->
+	<table class="table table-bordered table-condensed">
+		<thead>
+			<tr>
+				<th>No</th>
+				<th>제목</th>
+				<th>삭제</th>
+			</tr>
+		</thead>
+		<tbody ng-repeat="data in dataList" >
+			<tr>
+				<td class="done-{{data.done}}">
+					<input type="checkbox" ng-model="data.done">
+				</td>
+				<td>
+					<span class="done-{{data.done}} pointer">{{data.title}}</span>
+				</td>
+				<td>
+					<a href ng-click="data.splice($index,1)">[x]</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<button ng-click="{{scope.editView=true}}">작성하기</button>
+	<div ng-show="editView">
+		<form ng-submit="addNew()">
+			<p>
+				<label>제목 : </label>
+				<input type="text" ng-model="newTitle">
+			</p>
+			<p>
+				<label>내용 : </label>
+				<input type="text" ng-model="newContents">
+			</p>
+			<p><input type="submit" value="작성하기">
+			<input type="button" value="취소하기"></p>
+		</form>
+	</div>
+	
+	
+</div>

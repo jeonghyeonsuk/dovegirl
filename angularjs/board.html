@@ -1,0 +1,50 @@
+
+<!doctype html>
+<html ng-app="boardApp">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="bootstrap_css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/board.css">
+    <!--라이브러리-->
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-ui-router.js"></script>    
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="bootstrap_js/bootstrap.min.js"></script>
+    <!--생성-->
+    <script src="js/boardConfig.js"></script>
+    <script src="js/boardCtrl.js"></script>
+    <title>Board Demo</title>
+  </head>
+  <body>
+  	<!--bootstrap css 의 본문 가운데 정렬 -->
+  	<div class="contents">
+  		<!--bootstrap css 네이비게이터 -->
+  		<nav class="navbar navbar-inverse " role="navigation">			
+  			<div class="navbar-header">
+          <!--bootstrap css : 화면이 작아지면 메뉴가 축소된다. -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-ex8-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+  		   		<a class="navbar-brand" href="#"><b>AngularJS Demo</b></a>
+  		  </div>			
+  		  
+        <div class="navbar-collapse navbar-ex8-collapse collapse" style="height: 1px;">
+          <ul class="nav navbar-nav">
+            <li><a href="#/board">Board</a></li>
+            <li><a href="#/search">Search</a></li>        
+            <li><a href="javascript:alert('준비중');">Map</a></li>
+          </ul>
+        </div>
+      </nav>
+
+  		<!-- bootstrap css  -->
+    	<section class="container">
+        <!--angular의 화면전환 부분 (명칭을 따로 지정하지 않는 이유는 list가 올수 있구 write가 올수있기때문이다.)-->
+        <div ui-view></div>
+      </section>
+  	</div>
+  </body>
+</html>
