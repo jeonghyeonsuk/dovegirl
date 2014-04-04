@@ -8,12 +8,17 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
       url: "/home",
       template:'<p>여기서 간단한 게시판과 API를 이용한 검색을 살펴보겠습니다.</p>'     
     })
+    .state('search', {
+      url: "/search",
+      templateUrl:'boardTemple/search.html'     
+    })
     .state('board', {
       url: "/board",
       templateUrl:'boardTemple/list.html'     
     })
-    .state('search', {
-      url: "/search",
-      templateUrl:'boardTemple/search.html'     
+    .state('board.item', {
+      url: "/:item",
+      templateUrl:'boardTemple/list.data.html', 
+      controller:'viewCtrl'
     })
 });
